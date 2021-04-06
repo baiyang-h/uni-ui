@@ -22,7 +22,7 @@ export default [
         title_en: 'Border',
       },
       {
-        path: '',
+        path: '/pages/components/base/icon/index',
         icon: 'icon',
         title: 'Icon 图标',
         title_en: 'Icon',

@@ -3,12 +3,11 @@
     class="u-btn u-line-1 u-fix-ios-appearance"
     :class="[
         'u-size-' + size,
-        plain ? 'u-btn--' + type + '--plain' : '',
         loading ? 'u-loading' : '',
         shape === 'circle' ? 'u-round-circle' : '',
         border ? showBorder : 'u-btn--hidden-border',
         'u-btn--' + type,
-        disabled ? `u-btn--${type}--disabled` : '',
+        plainAndDisabledEffect,
     ]"
     :style="[customStyle, {
 			overflow: ripple ? 'hidden' : 'visible'
@@ -27,14 +26,14 @@
     :session-from="sessionFrom"
     :send-message-img="sendMessageImg"
     :show-message-card="showMessageCard"
+    :hover-class="getHoverClass"
+    :loading="loading"
     @getphonenumber="getphonenumber"
     @getuserinfo="getuserinfo"
     @error="error"
     @opensetting="opensetting"
     @launchapp="launchapp"
     @click.stop="click($event)"
-    :hover-class="getHoverClass"
-    :loading="loading"
   >
     <slot></slot>
     <view
@@ -218,6 +217,18 @@ export default {
       } else {
         return 'u-btn--show-border';
       }
+    },
+    // 按钮处于 plain、disabled 或者 两种都有时的按钮样式，返回的类型
+    plainAndDisabledEffect() {
+      let classname = ''
+      if(this.plain && this.disabled) {
+        classname = `u-btn--${this.type}--plain--disabled`   // 即 u-btn--primary--plain--disabled 这样的类名
+      } else if(this.plain) {
+        classname = `u-btn--${this.type}--plain`             // 即 u-btn--primary--plain
+      } else if(this.disabled) {
+        classname = `u-btn--${this.type}--disabled`   // 即 u-btn--primary--disabled
+      }
+      return classname
     }
   },
   methods: {
@@ -378,23 +389,20 @@ export default {
     border-color: $u-type-primary-disabled!important;
     background-color: $u-type-primary-light!important;
   }
-
   &--success--plain {
     color: $u-type-success!important;
     border-color: $u-type-success-disabled!important;
     background-color: $u-type-success-light!important;
   }
-
-  &--error--plain {
-    color: $u-type-error!important;
-    border-color: $u-type-error-disabled!important;
-    background-color: $u-type-error-light!important;
-  }
-
   &--warning--plain {
     color: $u-type-warning!important;
     border-color: $u-type-warning-disabled!important;
     background-color: $u-type-warning-light!important;
+  }
+  &--error--plain {
+    color: $u-type-error!important;
+    border-color: $u-type-error-disabled!important;
+    background-color: $u-type-error-light!important;
   }
   // disabled
   &--default--disabled {
@@ -412,15 +420,41 @@ export default {
     border-color: $u-type-success-disabled!important;
     background-color: $u-type-success-disabled!important;
   }
+  &--warning--disabled {
+    color: #ffffff!important;
+    border-color: $u-type-warning-disabled!important;
+    background-color: $u-type-warning-disabled!important;
+  }
   &--error--disabled {
     color: #ffffff!important;
     border-color: $u-type-error-disabled!important;
     background-color: $u-type-error-disabled!important;
   }
-  &--warning--disabled {
-    color: #ffffff!important;
+  // plain and disabled
+  &--default--plain--disabled {
+    color: $u-type-info-disabled!important;
+    border-color: $u-type-info-disabled!important;
+    background-color: #ffffff!important;
+  }
+  &--primary--plain--disabled {
+    color: $u-type-primary-disabled!important;
+    border-color: $u-type-primary-disabled!important;
+    background-color: $u-type-primary-light!important;
+  }
+  &--success--plain--disabled {
+    color: $u-type-success-disabled!important;
+    border-color: $u-type-success-disabled!important;
+    background-color: $u-type-success-light!important;
+  }
+  &--warning--plain--disabled {
+    color: $u-type-warning-disabled!important;
     border-color: $u-type-warning-disabled!important;
-    background-color: $u-type-warning-disabled!important;
+    background-color: $u-type-warning-light!important;
+  }
+  &--error--plain--disabled {
+    color: $u-type-error-disabled!important;
+    border-color: $u-type-error-disabled!important;
+    background-color: $u-type-error-light!important;
   }
 }
 

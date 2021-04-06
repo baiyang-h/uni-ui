@@ -1,19 +1,20 @@
 <template>
   <view class="typography-page wrap-page">
-    <view class="u-title u-m-b-20">字体</view>
-    <view class="font u-m-b-30">
-      <image src="/static/images/typography/fontPingFangSC.png" />
-      <image src="/static/images/typography/fontHiraginoSansGB.png" />
-      <image src="/static/images/typography/fontMicrosoftYaHei.png" />
-      <image src="/static/images/typography/fontSanFranciscoUi.png" />
-      <image src="/static/images/typography/fontHelveticaNeue.png" />
-      <image src="/static/images/typography/fontArial.png" />
-    </view>
+    <u-panel title="字体">
+      <view class="font">
+        <image src="/static/images/typography/fontPingFangSC.png" />
+        <image src="/static/images/typography/fontHiraginoSansGB.png" />
+        <image src="/static/images/typography/fontMicrosoftYaHei.png" />
+        <image src="/static/images/typography/fontSanFranciscoUi.png" />
+        <image src="/static/images/typography/fontHelveticaNeue.png" />
+        <image src="/static/images/typography/fontArial.png" />
+      </view>
+    </u-panel>
 
-    <view class="main">
+    <u-gap />
 
-      <view class="u-title u-m-b-20">字号</view>
-      <view class="table u-m-b-30">
+    <u-panel title="字号">
+      <view class="table">
         <u-table>
           <u-tr class="u-tr">
             <u-th class="u-th">层级</u-th>
@@ -64,9 +65,12 @@
           </u-tr>
         </u-table>
       </view>
+    </u-panel>
 
-      <view class="u-title u-m-b-20">行高</view>
-      <view class="line-height-container u-flex u-m-b-30">
+    <u-gap />
+
+    <u-panel title="行高">
+      <view class="line-height-container u-flex">
         <image src="/static/images/typography/line-height.png" class="line-height-img" />
         <view class="line-height-text u-font-xs">
           <view>
@@ -87,7 +91,9 @@
           </view>
         </view>
       </view>
-    </view>
+    </u-panel>
+
+    <u-gap />
   </view>
 </template>
 
@@ -113,34 +119,31 @@ export default {
     }
   }
 
-  .main {
-    .table {
-      .u-td-font {
-        display: flex;
-        text {
-          width: 50%;
-        }
+  .table {
+    .u-td-font {
+      display: flex;
+      text {
+        width: 50%;
       }
-      @for $i from 12 through 18 {
-        .u-font-#{$i} {
-          .u-td {
-            font-size: $i + px !important;
-          }
+    }
+    @for $i from 12 through 18 {
+      .u-font-#{$i} {
+        .u-td {
+          font-size: $i + px !important;
         }
       }
     }
+  }
 
-    .line-height-container {
-      .line-height-img {
-        width: 400rpx;
-        height: 160rpx;
-      }
-      .line-height-text {
-        line-height: 1.5;
-        margin-left: 30rpx;
-      }
+  .line-height-container {
+    .line-height-img {
+      width: 400rpx;
+      height: 160rpx;
     }
-
+    .line-height-text {
+      line-height: 1.5;
+      margin-left: 30rpx;
+    }
   }
 }
 </style>

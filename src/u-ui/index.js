@@ -1,3 +1,4 @@
+import './font/iconfont.css'
 // 获取整个父组件
 import $parent from './libs/function/$parent'
 // 节流方法
