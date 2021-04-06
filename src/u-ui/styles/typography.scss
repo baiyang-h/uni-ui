@@ -1,0 +1,60 @@
+/**
+ * 对字体进行统一规范
+ * - 字体大小
+ * - 字体类型
+ * - 行高等
+ *
+ * 字体大小快捷类 和 字体大小数字类 9-20px   20-40rpx
+ */
+
+.u-pf-med {
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+
+.u-pf-reg {
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+
+.u-dinal-bold {
+  font-family: DINAlternate-Bold, DINAlternate;
+}
+
+.u-font-xs {
+  font-size: 24rpx;
+}
+
+.u-font-sm {
+  font-size: 26rpx;
+}
+
+// 常规是 14px 这里就不设置了 默认全局设置 14px
+
+.u-font-md {
+  font-size: 30rpx;
+}
+
+.u-font-lg {
+  font-size: 32rpx;
+}
+
+.u-font-xl {
+  font-size: 34rpx;
+}
+
+// 定义字体(px)单位，小于20都为px单位字体
+@for $i from 9 to 20 {
+  .u-font-#{$i} {
+    font-size: $i + px;
+  }
+}
+
+// 定义字体(rpx)单位，大于或等于20的都为rpx单位字体
+@for $i from 20 through 40 {
+  .u-font-#{$i} {
+    font-size: $i + rpx;
+  }
+}
+
+
+
+

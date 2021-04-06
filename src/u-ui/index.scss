@@ -1,0 +1,15 @@
+// 引入公共基础样式
+@import "./styles/common";
+@import "./styles/color";
+@import "./styles/typography";
+@import "./styles/flex";
+
+// 非nvue的样式
+/* #ifndef APP-NVUE */
+@import "./styles/style.vue";
+/* #endif */
+
+// 小程序特有的样式
+/* #ifdef MP */
+@import "./styles/style.mp";
+/* #endif */

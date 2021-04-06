@@ -1,0 +1,94 @@
+{
+  "easycom": {
+    "^u-(.*)": "@/u-ui/components/u-$1/u-$1.vue"
+  },
+  "pages": [
+    // 演示-组件
+    {
+      "path": "pages/example/components",
+      "style": {
+        "navigationBarTitleText": "组件"
+      }
+    },
+    // 演示-工具
+    {
+      "path": "pages/example/utils",
+      "style": {
+        "navigationBarTitleText": "工具"
+      }
+    },
+    // 演示-模板
+    {
+      "path": "pages/example/template",
+      "style": {
+        "navigationBarTitleText": "模板"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages/components/base",
+      // color颜色
+      "pages": [
+        {
+          "path": "color/index",
+          "style": {
+            "navigationBarTitleText": "Color 颜色"
+            // "navigationStyle": "custom" ,// 隐藏系统导航栏
+            // "navigationBarTextStyle": "white" // 状态栏字体为白色
+          }
+        },
+        {
+          "path": "typography/index",
+          "style": {
+            "navigationBarTitleText": "Typography 字体"
+          }
+        },
+        {
+          "path": "border/index",
+          "style": {
+            "navigationBarTitleText": "Border 边框"
+          }
+        },
+        {
+          "path": "button/index",
+          "style": {
+            "navigationBarTitleText": "Button"
+          }
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-ui",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#303133",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/example/components",
+        "iconPath": "static/images/component.png",
+        "selectedIconPath": "static/images/component_select.png",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/example/utils",
+        "iconPath": "static/images/util.png",
+        "selectedIconPath": "static/images/util_select.png",
+        "text": "工具"
+      },
+      {
+        "pagePath": "pages/example/template",
+        "iconPath": "static/images/template.png",
+        "selectedIconPath": "static/images/template_select.png",
+        "text": "模板"
+      }
+    ]
+  }
+}

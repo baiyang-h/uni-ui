@@ -1,0 +1,67 @@
+/*
+ * - 定位属性：relative、absolute
+ * - image标签：改为inline-block
+ * - text、view都默认 box-sizing: border-box
+ * - padding 和 margin 快捷类，缩写，全写两种形式， 主要是能被2整除、5整除。例如：u-m-10, u-margin-10, u-p-l-4, u-padding-left-4
+ */
+
+.u-relative, .u-rela {
+  position: relative;
+}
+
+.u-absolute, .u-abso {
+  position: absolute;
+}
+
+// nvue不能用标签命名样式，不能放在微信组件中，否则微信开发工具会报警告，无法使用标签名当做选择器
+/* #ifndef APP-NVUE */
+image {
+  display: inline-block;
+}
+
+// 在weex，也即nvue中，所有元素默认为border-box
+view,
+text {
+  box-sizing: border-box;
+}
+/* #endif */
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+  // 只要双数和能被5除尽的数
+  @if $i % 2 == 0 or $i % 5 == 0 {
+    // 如：u-margin-30或者u-m-30
+    .u-margin-#{$i}, .u-m-#{$i} {
+      margin: $i + rpx!important;
+    }
+
+    // 如：u-padding-30或者u-p-30
+    .u-padding-#{$i}, .u-p-#{$i} {
+      padding: $i + rpx!important;
+    }
+
+    @each $short, $long in l left, t top, r right, b bottom {
+      // 缩写版，结果如： u-m-l-30
+      // 定义外边距
+      .u-m-#{$short}-#{$i} {
+        margin-#{$long}: $i + rpx!important;
+      }
+
+      // 定义内边距
+      .u-p-#{$short}-#{$i} {
+        padding-#{$long}: $i + rpx!important;
+      }
+
+      // 完整版，结果如：u-margin-left-30
+      // 定义外边距
+      .u-margin-#{$long}-#{$i} {
+        margin-#{$long}: $i + rpx!important;
+      }
+
+      // 定义内边距
+      .u-padding-#{$long}-#{$i} {
+        padding-#{$long}: $i + rpx!important;
+      }
+    }
+  }
+}

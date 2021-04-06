@@ -1,0 +1,9 @@
+/**
+ * 对小程序编译后页面有组件名的元素，即一个自定义组件，他有一个 #shadow-root 外层， 做特别处理，额外进行样式添加
+ */
+
+u-td, u-th {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+}
