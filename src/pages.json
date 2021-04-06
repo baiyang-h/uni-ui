@@ -59,7 +59,13 @@
         {
           "path": "button/index",
           "style": {
-            "navigationBarTitleText": "Button"
+            "navigationBarTitleText": "Button 按钮"
+          }
+        },
+        {
+          "path": "layout/index",
+          "style": {
+            "navigationBarTitleText": "Layout 布局"
           }
         }
       ]

@@ -40,7 +40,7 @@ export default [
         title_en: 'Button',
       },
       {
-        path: '',
+        path: '/pages/components/base/layout/index',
         icon: 'layout',
         title: 'Layout 布局',
         title_en: 'Layout',

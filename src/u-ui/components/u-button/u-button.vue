@@ -52,6 +52,42 @@
 </template>
 
 <script>
+/**
+ * button 按钮
+ * @description Button 按钮
+ * @property {Boolean} border   是否显示按钮的边框（默认为true）
+ * @property {String} shape   按钮外观形状，纯圆角还是有角，见官方文档
+ * @property {String} ripple-bg-color   水波纹的背景色，ripple为true时有效
+ * @property {Boolean} ripple   是否开启点击水波纹效果
+ * @property {Object} custom-style 对按钮自定义样式，对象形式，见文档说明
+ * @property {String} dataName    额外传参参数，用于小程序的 data-xxx 属性，通过 target.dataset.name 获取
+ * @property {String, Number} throttle-time    节流，一定时间内只能触发一次
+ * @property {String} type    按钮样式类型
+ * @property {String} size    按钮的大小
+ * @property {Boolean} plain    按钮是否镂空，背景透明
+ * @property {Boolean} disabled   按钮是否禁用
+ * @property {Boolean} loading    按钮名称前是否带 loading 图标
+ * @property {String} open-type    开放能力
+ * @property {String} form-type    用于 <form> 组件，点击分别会触发 <form> 组件的 submit/reset 事件
+ * @property {String} app-parameter
+ * @property {Boolean} hover-stop-propagation   指定是否阻止本节点的祖先节点出现点击态，微信小程序有效
+ * @property {String} lang    指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文。只微信小程序有效
+ * @property {String} session-from
+ * @property {String} send-message-title
+ * @property {String} send-message-path
+ * @property {String} send-message-img
+ * @property {Boolean} show-message-card
+ * @property {String} hover-class   指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果(App-nvue 平台暂不支持)
+ * @property {String, Number} hover-start-time    按住后多久出现点击态，单位毫秒
+ * @property {String, Number} hover-stay-time   手指松开后点击态保留时间，单位毫秒
+ * @event {Function} click 按钮点击
+ * @event {Function} getphonenumber open-type="getPhoneNumber"时有效
+ * @event {Function} getuserinfo 用户点击该按钮时，会返回获取到的用户信息，从返回参数的detail中获取到的值同uni.getUserInfo
+ * @event {Function} error 当使用开放能力时，发生错误的回调
+ * @event {Function} opensetting 在打开授权设置页并关闭后回调
+ * @event {Function} launchapp 打开 APP 成功的回调
+ * @example <u-button>按钮</u-button>
+ */
 export default {
   name: "u-button",
   data() {
