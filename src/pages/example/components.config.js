@@ -1,28 +1,28 @@
 export default [
   {
-    groupName: '基础组件',
+    groupName: '基础',
     groupName_en: 'Basic components',
     list: [
       {
-        path: '/pages/components/base/color/index',
+        path: '/pages/components/basic/color/index',
         icon: 'color',
         title: 'Color 色彩',
         title_en: 'Color',
       },
       {
-        path: '/pages/components/base/typography/index',
+        path: '/pages/components/basic/typography/index',
         icon: 'font',
         title: 'Font 字体',
         title_en: 'Font',
       },
       {
-        path: '/pages/components/base/border/index',
+        path: '/pages/components/basic/border/index',
         icon: 'border',
         title: 'Border 边框',
         title_en: 'Border',
       },
       {
-        path: '/pages/components/base/icon/index',
+        path: '/pages/components/basic/icon/index',
         icon: 'icon',
         title: 'Icon 图标',
         title_en: 'Icon',
@@ -34,16 +34,10 @@ export default [
         title_en: 'Image',
       },
       {
-        path: '/pages/components/base/button/index',
+        path: '/pages/components/basic/button/index',
         icon: 'button',
         title: 'Button 按钮',
         title_en: 'Button',
-      },
-      {
-        path: '/pages/components/base/layout/index',
-        icon: 'layout',
-        title: 'Layout 布局',
-        title_en: 'Layout',
       },
       {
         path: '',
@@ -66,7 +60,91 @@ export default [
     ]
   },
   {
-    groupName: '表单组件',
+    groupName: '布局',
+    groupName_en: 'Layout components',
+    list: [
+      {
+        path: '/pages/components/layout/layout/index',
+        icon: 'layout',
+        title: 'Layout 布局',
+        title_en: 'Layout',
+      },
+      {
+        path: '/pages/components/layout/grid/index',
+        icon: 'grid',
+        title: 'Grid 宫格布局',
+        title_en: 'Grid',
+      },
+      {
+        path: '/pages/components/layout/gap/index',
+        icon: 'gap',
+        title: 'Gap 间隔槽',
+        title_en: 'Gap',
+      },
+      {
+        path: '',
+        icon: 'line',
+        title: 'Line 线条',
+        title_en: 'Line',
+      },
+      {
+        path: '',
+        icon: 'card',
+        title: 'Card 卡片',
+        title_en: 'Card',
+      },
+      {
+        path: '',
+        icon: 'mask',
+        title: 'Mask 遮罩层',
+        title_en: 'Mask',
+      },
+      {
+        path: '',
+        icon: 'noNetwork',
+        title: 'NoNetwork 无网络提示',
+        title_en: 'NoNetwork',
+      },
+      {
+        path: '',
+        icon: 'swiper',
+        title: 'Swiper 轮播图',
+        title_en: 'Swiper',
+      },
+      {
+        path: '',
+        icon: 'timeLine',
+        title: 'TimeLine 时间轴',
+        title_en: 'TimeLine',
+      },
+      {
+        path: '/pages/components/layout/skeleton/index',
+        icon: 'skeleton',
+        title: 'Skeleton 骨架屏',
+        title_en: 'Skeleton',
+      },
+      {
+        path: '',
+        icon: 'sticky',
+        title: 'Sticky 吸顶',
+        title_en: 'Sticky',
+      },
+      {
+        path: '',
+        icon: 'waterfall',
+        title: 'Waterfall 瀑布流',
+        title_en: 'Waterfall',
+      },
+      {
+        path: '',
+        icon: 'divider',
+        title: 'Divider 分割线',
+        title_en: 'Divider',
+      }
+    ]
+  },
+  {
+    groupName: '表单',
     groupName_en: 'Form components',
     list: [
       {
@@ -161,7 +239,7 @@ export default [
     ]
   },
   {
-    groupName: '数据组件',
+    groupName: '视图',
     groupName_en: 'Data components',
     list: [
       {
@@ -191,7 +269,7 @@ export default [
     ]
   },
   {
-    groupName: '反馈组件',
+    groupName: '操作反馈',
     groupName_en: 'Feedback components',
     list: [
       {
@@ -257,79 +335,7 @@ export default [
     ]
   },
   {
-    groupName: '布局组件',
-    groupName_en: 'Layout components',
-    list: [
-      {
-        path: '',
-        icon: 'line',
-        title: 'Line 线条',
-        title_en: 'Line',
-      },
-      {
-        path: '',
-        icon: 'card',
-        title: 'Card 卡片',
-        title_en: 'Card',
-      },
-      {
-        path: '',
-        icon: 'mask',
-        title: 'Mask 遮罩层',
-        title_en: 'Mask',
-      },
-      {
-        path: '',
-        icon: 'noNetwork',
-        title: 'NoNetwork 无网络提示',
-        title_en: 'NoNetwork',
-      },
-      {
-        path: '',
-        icon: 'grid',
-        title: 'Grid 宫格布局',
-        title_en: 'Grid',
-      },
-      {
-        path: '',
-        icon: 'swiper',
-        title: 'Swiper 轮播图',
-        title_en: 'Swiper',
-      },
-      {
-        path: '',
-        icon: 'timeLine',
-        title: 'TimeLine 时间轴',
-        title_en: 'TimeLine',
-      },
-      {
-        path: '',
-        icon: 'skeleton',
-        title: 'Skeleton 骨架屏',
-        title_en: 'Skeleton',
-      },
-      {
-        path: '',
-        icon: 'sticky',
-        title: 'Sticky 吸顶',
-        title_en: 'Sticky',
-      },
-      {
-        path: '',
-        icon: 'waterfall',
-        title: 'Waterfall 瀑布流',
-        title_en: 'Waterfall',
-      },
-      {
-        path: '',
-        icon: 'divider',
-        title: 'Divider 分割线',
-        title_en: 'Divider',
-      }
-    ]
-  },
-  {
-    groupName: '导航组件',
+    groupName: '导航',
     groupName_en: 'Navigation components',
     list: [{
       path: '',
@@ -400,7 +406,7 @@ export default [
     ]
   },
   {
-    groupName: '其他组件',
+    groupName: '其他',
     groupName_en: 'Other components',
     list: [
       {
@@ -438,12 +444,6 @@ export default [
         icon: 'lazyLoad',
         title: 'LazyLoad 懒加载',
         title_en: 'LazyLoad',
-      },
-      {
-        path: '',
-        icon: 'gap',
-        title: 'Gap 间隔槽',
-        title_en: 'Gap',
       },
       {
         path: '',

@@ -1,20 +1,19 @@
 <template>
   <view class="list-wrap">
-    <u-list>
-      <u-list-group
+    <u-cell-group
         v-for="item in list"
         :key="item.groupName"
         :title="item.groupName"
-      >
-        <u-list-item
+    >
+      <u-cell-item
           v-for="_item in item.list"
           :key="_item.title"
           :title="_item.title"
           @click="openPage(_item.path)"
-        >
-        </u-list-item>
-      </u-list-group>
-    </u-list>
+      >
+        <template v-slot:end>›</template>
+      </u-cell-item>
+    </u-cell-group>
     <u-gap height="70"></u-gap>
   </view>
 </template>
@@ -40,11 +39,6 @@ export default {
 
 <style lang="scss" scoped>
   .list-wrap {
-    .u-list-group {
 
-    }
-    .u-list-item {
-
-    }
   }
 </style>

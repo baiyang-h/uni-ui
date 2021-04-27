@@ -27,7 +27,7 @@
   ],
   "subPackages": [
     {
-      "root": "pages/components/base",
+      "root": "pages/components/basic",
       // color颜色
       "pages": [
         {
@@ -61,11 +61,34 @@
           "style": {
             "navigationBarTitleText": "Button 按钮"
           }
-        },
+        }
+      ]
+    },
+    {
+      "root": "pages/components/layout",
+      "pages": [
         {
           "path": "layout/index",
           "style": {
             "navigationBarTitleText": "Layout 布局"
+          }
+        },
+        {
+          "path": "grid/index",
+          "style": {
+            "navigationBarTitleText": "Grid 宫格布局"
+          }
+        },
+        {
+          "path": "gap/index",
+          "style": {
+            "navigationBarTitleText": "Gap 间隔槽"
+          }
+        },
+        {
+          "path": "skeleton/index",
+          "style": {
+            "navigationBarTitleText": "Skeleton 骨架屏"
           }
         }
       ]

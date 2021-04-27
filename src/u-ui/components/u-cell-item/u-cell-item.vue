@@ -1,6 +1,6 @@
 <template>
   <view
-    class="u-list-item"
+    class="u-cell-item"
     :class="{'u-border-bottom': borderBottom, 'u-border-top': borderTop, 'u-col-center': center}"
     :style="{
 			backgroundColor: bgColor
@@ -13,7 +13,7 @@
 
     <!--  title  -->
     <view
-      class="u-list-item__title"
+      class="u-cell-item__title"
       :style="[titleStyle]"
     >
       <view v-if="title !== ''">{{ title }}</view>
@@ -21,7 +21,7 @@
     </view>
     <!--  value  -->
     <view
-      class="u-list-item__value"
+      class="u-cell-item__value"
       :style="[valueStyle]"
     >
       <view v-if="value !== ''">{{ value }}</view>
@@ -29,19 +29,23 @@
     </view>
     <!--  右侧内容  -->
     <view
-      class="u-list-item__end"
+      class="u-cell-item__end"
       :style="[endStyle]"
     >
       <slot name="end"></slot>
-      ›
       <!--   图标> 暂时没写   -->
     </view>
   </view>
 </template>
 
 <script>
+/**
+ * u-cell-item 单元格Item
+ * @description cell 单元格一般用于一组列表的情况，搭配 u-cell-group 使用
+ * @property {String, Number}
+ */
 export default {
-  name: "u-list-item",
+  name: "u-cell-item",
   props: {
     // 左侧标题
     title: {
@@ -110,7 +114,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/style.components";
-.u-list-item {
+.u-cell-item {
   @include u-flex;
   align-items: center;
   position: relative;
@@ -124,23 +128,23 @@ export default {
   text-align: left;
 }
 
-.u-list-item__title {
+.u-cell-item__title {
   font-size: 28rpx;
 }
 
-.u-list-item__value {
+.u-cell-item__value {
   overflow: hidden;
   vertical-align: middle;
   color: $u-tips-color;
   font-size: 26rpx;
 }
 
-.u-list-item__title,
-.u-list-item__value {
+.u-cell-item__title,
+.u-cell-item__value {
   flex: 1;
 }
 
-.u-list-item__end {
+.u-cell-item__end {
   line-height: 1;
 }
 
