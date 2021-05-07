@@ -86,9 +86,44 @@
           }
         },
         {
+          "path": "line/index",
+          "style": {
+            "navigationBarTitleText": "Line 线条"
+          }
+        },
+        {
+          "path": "card/index",
+          "style": {
+            "navigationBarTitleText": "Card 卡片"
+          }
+        },
+        {
+          "path": "mask/index",
+          "style": {
+            "navigationBarTitleText": "Mask 遮罩层"
+          }
+        },
+        {
           "path": "skeleton/index",
           "style": {
             "navigationBarTitleText": "Skeleton 骨架屏"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/components/operation",
+      "pages": [
+        {
+          "path": "actionSheet/index",
+          "style": {
+            "navigationBarTitleText": "ActionSheet 操作菜单"
+          }
+        },
+        {
+          "path": "popup/index",
+          "style": {
+            "navigationBarTitleText": "Popup 弹出层"
           }
         }
       ]

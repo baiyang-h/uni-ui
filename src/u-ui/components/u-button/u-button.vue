@@ -136,7 +136,7 @@ export default {
     // 节流，一定时间内只能触发一次
     throttleTime: {
       type: [String, Number],
-      default: 1000
+      default: 500
     },
     /************* 下面的属性在uniapp官网都有 **************/
     // 按钮的预置样式，default，primary，error，warning，success

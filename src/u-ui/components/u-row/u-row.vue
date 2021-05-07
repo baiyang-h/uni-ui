@@ -23,7 +23,7 @@
 export default {
   name: "u-row",
   props: {
-    // 给col添加间距，左右边距各占一半
+    // 给col添加间距，左右边距各占一半 padding
     gutter: {
       type: [Number, String],
       default: 0

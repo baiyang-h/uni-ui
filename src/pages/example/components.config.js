@@ -82,19 +82,19 @@ export default [
         title_en: 'Gap',
       },
       {
-        path: '',
+        path: '/pages/components/layout/line/index',
         icon: 'line',
         title: 'Line 线条',
         title_en: 'Line',
       },
       {
-        path: '',
+        path: '/pages/components/layout/card/index',
         icon: 'card',
         title: 'Card 卡片',
         title_en: 'Card',
       },
       {
-        path: '',
+        path: '/pages/components/layout/mask/index',
         icon: 'mask',
         title: 'Mask 遮罩层',
         title_en: 'Mask',
@@ -273,7 +273,7 @@ export default [
     groupName_en: 'Feedback components',
     list: [
       {
-        path: '',
+        path: '/pages/components/operation/actionSheet/index',
         icon: 'actionSheet',
         title: 'ActionSheet 操作菜单',
         title_en: 'ActionSheet',
@@ -315,7 +315,7 @@ export default [
         title_en: 'Collapse',
       },
       {
-        path: '',
+        path: '/pages/components/operation/popup/index',
         icon: 'popup',
         title: 'Popup 弹出层',
         title_en: 'Popup',

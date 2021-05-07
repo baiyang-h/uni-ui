@@ -8,13 +8,23 @@ import $parent from './libs/function/$parent'
 import throttle from './libs/function/throttle.js'
 // 生成全局唯一guid字符串
 import guid from './libs/function/guid'
+// 添加单位
+import addUnit from "./libs/function/addUnit";
+
+/*配置信息*/
+// 各个需要fixed的地方的z-index配置文件
+import zIndex from "./libs/config/zIndex";
 
 const $u = {
     $parent,
     // 节流
     throttle,
     // 生成全局唯一guid字符串，一般多用于 key
-    guid
+    guid,
+    // z-index的配置信息
+    zIndex,
+    // 添加单位
+    addUnit,
 }
 
 // $u挂载到uni对象上

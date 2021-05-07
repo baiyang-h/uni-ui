@@ -103,6 +103,7 @@ export default {
   /* #ifdef MP-WEIXIN || MP-QQ || MP-TOUTIAO */
   float: left;
   /* #endif */
+  box-sizing: border-box;
 }
 
 @for $i from 0 through 12 {

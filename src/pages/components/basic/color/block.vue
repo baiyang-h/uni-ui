@@ -20,7 +20,9 @@ export default {
     },
     themes: {
       type: Array,
-      default: []
+      default() {
+        return []
+      }
     },
     classname: {
       type: [Array, String],
