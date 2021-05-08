@@ -30,7 +30,7 @@
       @touchmove.stop.prevent
       @tap.stop.prevent="modeCenterClose(mode)"
     >
-      <!--   popup 是 center 情况   -->
+    <!----------   popup 是 center 情况   ---------->
       <view
         class="u-mode-center-box"
         @tap.stop.prevent
@@ -52,13 +52,12 @@
           <slot />
         </scroll-view>
       </view>
+    <!----------   end   ---------->
 
-      <!--   popup 不是 center   -->
+    <!----------   popup 不是 center   ------------>
       <scroll-view class="u-drawer__scroll-view" scroll-y="true" v-else>
         <slot />
       </scroll-view>
-
-      <!--  关闭icon图标    -->
       <view
         v-if="mode !== 'center' && closeable"
         class="iconfont u-close"
@@ -69,6 +68,7 @@
         }"
         @tap="close"
       />
+    <!----------   end   ------------>
     </view>
   </view>
 </template>
@@ -79,9 +79,9 @@
  * @description 弹出层容器，用于展示弹窗、信息提示等内容，支持上、下、左、右和中部弹出。组件只提供容器，内部内容由用户自定义
  *
  * 说明：
- * 外层view、mask遮罩、内部内容区content（分 居中和上下左右，居中时会有些特别）
- *
- *
+ * - 1. 外层view（宽高占满全屏）、mask遮罩（宽高占满全屏）、内部内容区content（分 居中和上下左右，居中时会有些特别）（根据传入的属性撑开）
+ * - 2. 对于是 mode=center 中间弹框，当有过渡动画的时候，默认scale(1.15)、opacity为0， 展示时变为 scale(1)、opacity为1。对于left、right、top、bottom时比如点击mask关闭，而center时点击u-drawer-content，因为u-drawer-content层级比mask高，而且center时是占满全屏的
+ * - 3. 关闭打开销货显示过程，关闭时先通过动画隐藏弹框和遮罩，再移除整个组件，打开时，先渲染组件，延时一定时间再让遮罩和弹框的动画起作用，所以注意看，open和close时传入的param1和param2，visibleSync、showDrawer顺序是不一样的
  *
  * @property {String} mode 弹出方向（默认left） left|right|top|bottom|center
  * @property {Boolean} zoom 是否开启缩放动画，只在mode为center时有效（默认为true）
@@ -322,9 +322,9 @@ export default {
     },
     // popup 关闭
     close() {
-      // 标记关闭时内部发生的，否则修改了value值，导致watch中对value检测，导致再执行一遍close
-      // 造成@close事件触发两次
-      // 内部发生即点击关闭按钮关闭，外部发生即外部prop传入value改变
+      // 标记关闭时内部发生的（即点击关闭按钮等，向外$emit传false，外部props传入false，watch监听到又会执行一次close），，否则修改了value值，导致watch中对value检测，导致再执行一遍close
+      // 造成@close事件触发两次，所以增加一个判断开关，当是内部关闭的 watch 中的this.close 不在重复执行
+      // 内部发生即点击关闭按钮关闭，外部发生即外部如父组件中直接改变value值，导致prop传入value改变，watch监听到触发
       this.closeFromInner = true;
       this.change('showDrawer', 'visibleSync', false);
     },
