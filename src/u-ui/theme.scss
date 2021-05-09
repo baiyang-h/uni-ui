@@ -33,10 +33,10 @@ $u-type-error-disabled: #fab6b6;
 $u-type-error-light: #fef0f0;
 
 // 文字颜色
-$u-main-color: #303133;
+$u-main-color: #303133;       /* 默认颜色 */
 $u-content-color: #606266;
 $u-tips-color: #909399;
-$u-light-color: #c0c4cc;
+$u-light-color: #c0c4cc;      /* 可禁用时 */
 
 // 边框颜色
 $u-main-border-color: #dcdfe6;

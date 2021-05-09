@@ -79,6 +79,7 @@
  * @description 弹出层容器，用于展示弹窗、信息提示等内容，支持上、下、左、右和中部弹出。组件只提供容器，内部内容由用户自定义
  *
  * 说明：
+ * - 通过外部传入的value，然后内部监听value变化修改 visibleSync、showDrawer来显示隐藏，真正的状态在内部
  * - 1. 外层view（宽高占满全屏）、mask遮罩（宽高占满全屏）、内部内容区content（分 居中和上下左右，居中时会有些特别）（根据传入的属性撑开）
  * - 2. 对于是 mode=center 中间弹框，当有过渡动画的时候，默认scale(1.15)、opacity为0， 展示时变为 scale(1)、opacity为1。对于left、right、top、bottom时比如点击mask关闭，而center时点击u-drawer-content，因为u-drawer-content层级比mask高，而且center时是占满全屏的
  * - 3. 关闭打开销货显示过程，关闭时先通过动画隐藏弹框和遮罩，再移除整个组件，打开时，先渲染组件，延时一定时间再让遮罩和弹框的动画起作用，所以注意看，open和close时传入的param1和param2，visibleSync、showDrawer顺序是不一样的
@@ -90,6 +91,8 @@
  * @property {String, Number} negative-top 中部弹出时，往上偏移的值
  * @property {String, Number} border-radius 弹窗圆角值（默认0）
  * @property {String, Number} z-index 弹出内容的z-index值（默认1075）
+ * @property {Boolean} popup 对v-model双向绑定多层调用造成报错不能修改props值的问题，popup为true 就是外部v-model绑定的值也会动态修改，内部改变了v-model绑定的也改变了。popup为false，则内部改变了value状态，外部v-model绑定着的不变
+ *                     即，内部修改了 是否要 $emit('input', value) 改变外部，默认 popup 为true，是改变的，false为不改变，需要外部自己改变v-model绑定值的状态
  *
  * @property {String, Number} length 抽屉的宽度(mode=left|right)，或者高度(mode=top|bottom)，单位rpx，或者"auto"，或者百分比"50%"，表示由内容撑开高度或者宽度
  * @property {String, Number} width 宽度，只对左，右，中部弹出时起作用，单位rpx，或者"auto"，或者百分比"50%"，表示由内容撑开高度或者宽度，优先级高于length参数
@@ -156,6 +159,7 @@ export default {
     },
     // 此为内部参数，不在文档对外使用，为了解决Picker和keyboard等融合了弹窗的组件
     // 对v-model双向绑定多层调用造成报错不能修改props值的问题
+    // popup为true 就是外部v-model绑定的值也会动态修改，内部改变了v-model绑定的也改变了。popup为false，则内部改变了value状态，外部v-model绑定着的不变
     popup: {
       type: Boolean,
       default: true
