@@ -285,9 +285,9 @@ export default [
         title_en: 'AlertTips',
       },
       {
-        path: '',
+        path: '/pages/components/operation/toast/index',
         icon: 'toast',
-        title: 'Toast 消息提示',
+        title: 'Toast 轻提示',
         title_en: 'Toast',
       },
       {

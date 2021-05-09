@@ -125,6 +125,12 @@
           "style": {
             "navigationBarTitleText": "Popup 弹出层"
           }
+        },
+        {
+          "path": "toast/index",
+          "style": {
+            "navigationBarTitleText": "Toast 轻提示"
+          }
         }
       ]
     }

@@ -10,6 +10,10 @@ import throttle from './libs/function/throttle.js'
 import guid from './libs/function/guid'
 // 添加单位
 import addUnit from "./libs/function/addUnit";
+// 对象深度拷贝
+import deepMerge from './libs/function/deepMerge.js'
+// 根据type获取图标名称
+import type2icon from './libs/function/type2icon.js'
 
 /*配置信息*/
 // 各个需要fixed的地方的z-index配置文件
@@ -25,6 +29,10 @@ const $u = {
     zIndex,
     // 添加单位
     addUnit,
+    // 对象深度合并
+    deepMerge,
+    // 主题类型error、warning、success、info等转相应图标
+    type2icon
 }
 
 // $u挂载到uni对象上
