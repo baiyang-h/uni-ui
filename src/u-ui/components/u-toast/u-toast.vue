@@ -7,8 +7,11 @@
     <!-- 透明遮罩，如果设置mask为true了，toast显示的时候，点击页面别的部分不生效，要将css的pointer-events注释掉  -->
     <view class="u-mask" v-if="isShow && tmpConfig.mask"></view>
     <block v-if="tmpConfig.type === 'default'">
-      <view :class="['iconfont', iconName]" v-if="tmpConfig.icon && iconName"></view>
-      <view>{{ tmpConfig.title }}</view>
+      <view class="u-toast-default">
+        <view :class="['iconfont', iconName]" v-if="tmpConfig.icon && iconName"></view>
+        <view class="u-toast-default--image" v-if="tmpConfig.image"><image :src="tmpConfig.image" /></view>
+        <view>{{ tmpConfig.title }}</view>
+      </view>
     </block>
     <block v-else>
       <text :class="['iconfont', iconName]" v-if="tmpConfig.icon && iconName" />
@@ -24,6 +27,16 @@
  * @property {String} z-index toast展示时的z-index的值
  * @event {Function} show 显示 toast，如需一进入页面就显示toast，请在onReady生命周期中调用，如 this.$refs.uToast.show({title: '123'})
  * @example <u-toast ref="uToast" />
+ *
+ * config options合并后的tmpConfig配置， 即外部传入的配置项
+ * title {String} 显示的toast信息
+ * type {String} toast 类型，default、primary、info、success、warning、error
+ * icon {String} 图片类名，对于 success、error、warning 直接内部定义了主题icon，其他可传入 iconfont 的字体图标名
+ * image {String} 自定义图片路径
+ * duration {Number} toast 显示的时间
+ * position {String} toast 显示的位置
+ * mask {Boolean} 是否显示一个透明的遮罩，这样每次 toast 显示时就不能点击页面别的地方
+ * callback {Function} toast执行完成后的回调函数
  */
 export default {
   name: "u-toast",
@@ -39,9 +52,9 @@ export default {
       isShow: false,
       timer: null,    // 定时器
       config: {
-        title: '',    // 显示的文本
-        type: 'default',     // 主题类型，primary、success、error、warning、info、default
-        icon: '',         // 显示的图标
+        title: '',            // 显示的文本
+        type: 'default',      // 主题类型，primary、success、error、warning、info、default
+        icon: '',             // 显示的图标
         image: '',            // 自定义图片的本地路径
         duration: 2000,       // 显示的时间，毫秒
         position: 'center',   // 显示的位置 center、top、bottom
@@ -56,7 +69,7 @@ export default {
       // 只有不为none，并且type为 error、warning、success、info 时候，才显示主题图标， default、primary默认不显示，如果default显示图标，则位置保持和uniapp中的api showToast 图标位置的位置一致
       if(this.tmpConfig.icon) {
         let icon = this.tmpConfig.icon;
-        // 显示主题图标
+        // 显示主题图标,只要icon有值，并且是 error、warning、success、info 就有图标，并且是根据主题type类型设定的
         if(['error', 'warning', 'success', 'info'].indexOf(this.tmpConfig.type) >= 0) {
           icon = this.$u.type2icon(this.tmpConfig.type);
         }
@@ -79,6 +92,8 @@ export default {
     show(options) {
       // 将外部传入的配置项和内部默认设定的合并，覆盖，生成一个新的配置对象
       this.tmpConfig = this.$u.deepMerge(this.config, options);
+      // 如果type不在这几种类型中，默认为default
+      if(!['primary', 'error', 'warning', 'success', 'info', 'default'].includes(this.tmpConfig.type)) this.tmpConfig.type = 'default'
       if(this.timer) {
         // 清除定时器
         clearTimeout(this.timer);
@@ -122,7 +137,7 @@ export default {
   font-size: 28rpx;
   opacity: 0;
   //pointer-events: none;
-  padding: 18px 40rpx;
+  padding: 18rpx 40rpx;
 }
 
 // 遮罩，当需要时mask，出现 toast 时，点击别的地方，没有效果，有一层透明的遮罩
@@ -131,6 +146,23 @@ export default {
   height: 100vh;
   width: 100vh;
   z-index: 99999999;
+}
+
+// 对于 default 主题的 toast
+.u-toast-default {
+  .iconfont {
+    font-size: 70rpx;
+  }
+}
+.u-toast-default--image {
+  width: 300rpx;
+  height: 200rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  image {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .u-toast.u-show {

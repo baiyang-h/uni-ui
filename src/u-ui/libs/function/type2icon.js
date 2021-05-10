@@ -47,8 +47,8 @@ function type2icon(type = 'success', fill = false) {
 			default:
 				iconName = 'icon-roundcheckfill';
 		}
-		return iconName;
 	}
+	return iconName;
 }
 
 export default type2icon;

@@ -1,3 +1,11 @@
 /**
  * 该文件用于改变组件内部的样式，直接在模块中修改可能无效，需在外部修改
  */
+
+// toast 轻提示页面
+.toast-page {
+  .u-btn {
+    margin-bottom: 10rpx;
+    margin-right: 10rpx;
+  }
+}
