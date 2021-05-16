@@ -279,37 +279,25 @@ export default [
         title_en: 'ActionSheet',
       },
       {
-        path: '',
-        icon: 'alertTips',
-        title: 'AlertTips 警告提示',
-        title_en: 'AlertTips',
-      },
-      {
         path: '/pages/components/operation/toast/index',
         icon: 'toast',
         title: 'Toast 轻提示',
         title_en: 'Toast',
       },
       {
-        path: '',
-        icon: 'noticeBar',
-        title: 'NoticeBar 滚动通知',
-        title_en: 'NoticeBar',
-      },
-      {
-        path: '',
+        path: '/pages/components/operation/topTips/index',
         icon: 'topTips',
         title: 'TopTips 顶部提示',
         title_en: 'TopTips',
       },
       {
-        path: '',
+        path: '/pages/components/operation/swipeAction/index',
         icon: 'swipeAction',
         title: 'SwipeAction 滑动单元格',
         title_en: 'SwipeAction',
       },
       {
-        path: '',
+        path: '/pages/components/operation/collapse/index',
         icon: 'collapse',
         title: 'Collapse 折叠面板',
         title_en: 'Collapse',
@@ -321,16 +309,10 @@ export default [
         title_en: 'Popup',
       },
       {
-        path: '',
+        path: '/pages/components/operation/modal/index',
         icon: 'modal',
         title: 'Modal 模态框',
         title_en: 'Modal',
-      },
-      {
-        path: '',
-        icon: 'pressingScreen',
-        title: 'fullScreen 压窗屏',
-        title_en: 'fullScreen',
       }
     ]
   },

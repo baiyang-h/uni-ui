@@ -121,15 +121,39 @@
           }
         },
         {
+          "path": "toast/index",
+          "style": {
+            "navigationBarTitleText": "Toast 轻提示"
+          }
+        },
+        {
+          "path": "topTips/index",
+          "style": {
+            "navigationBarTitleText": "TopTips 顶部提示"
+          }
+        },
+        {
+          "path": "swipeAction/index",
+          "style": {
+            "navigationBarTitleText": "SwipeAction 滑动单元格"
+          }
+        },
+        {
+          "path": "collapse/index",
+          "style": {
+            "navigationBarTitleText": "Collapse 折叠面板"
+          }
+        },
+        {
           "path": "popup/index",
           "style": {
             "navigationBarTitleText": "Popup 弹出层"
           }
         },
         {
-          "path": "toast/index",
+          "path": "modal/index",
           "style": {
-            "navigationBarTitleText": "Toast 轻提示"
+            "navigationBarTitleText": "Modal 模态框"
           }
         }
       ]
