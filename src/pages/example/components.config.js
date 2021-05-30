@@ -52,7 +52,7 @@ export default [
         title_en: 'Badge',
       },
       {
-        path: '',
+        path: '/pages/components/basic/tag/index',
         icon: 'tag',
         title: 'Tag 标签',
         title_en: 'Tag',

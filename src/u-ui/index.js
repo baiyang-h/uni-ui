@@ -20,8 +20,11 @@ import toast from "./libs/function/toast";
 /*配置信息*/
 // 各个需要fixed的地方的z-index配置文件
 import zIndex from "./libs/config/zIndex";
+import config from './libs/config/config'
 
 const $u = {
+    // 组件库相关配置文件
+    config,
     $parent,
     // 节流
     throttle,

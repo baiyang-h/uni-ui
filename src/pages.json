@@ -61,6 +61,12 @@
           "style": {
             "navigationBarTitleText": "Button 按钮"
           }
+        },
+        {
+          "path": "tag/index",
+          "style": {
+            "navigationBarTitleText": "Tag 标签"
+          }
         }
       ]
     },
