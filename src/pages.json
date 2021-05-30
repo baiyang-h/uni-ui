@@ -135,7 +135,8 @@
         {
           "path": "swipeAction/index",
           "style": {
-            "navigationBarTitleText": "SwipeAction 滑动单元格"
+            "navigationBarTitleText": "SwipeAction 滑动单元格",
+            "disableScroll": true
           }
         },
         {

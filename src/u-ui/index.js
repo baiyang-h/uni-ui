@@ -14,6 +14,8 @@ import addUnit from "./libs/function/addUnit";
 import deepMerge from './libs/function/deepMerge.js'
 // 根据type获取图标名称
 import type2icon from './libs/function/type2icon.js'
+// toast提示，对uni.showToast的封装
+import toast from "./libs/function/toast";
 
 /*配置信息*/
 // 各个需要fixed的地方的z-index配置文件
@@ -32,7 +34,9 @@ const $u = {
     // 对象深度合并
     deepMerge,
     // 主题类型error、warning、success、info等转相应图标
-    type2icon
+    type2icon,
+    // uni-app 内置的 toast
+    toast,
 }
 
 // $u挂载到uni对象上
