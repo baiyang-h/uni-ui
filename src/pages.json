@@ -63,6 +63,12 @@
           }
         },
         {
+          "path": "badge/index",
+          "style": {
+            "navigationBarTitleText": "Badge 徽标数"
+          }
+        },
+        {
           "path": "tag/index",
           "style": {
             "navigationBarTitleText": "Tag 标签"

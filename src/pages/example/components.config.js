@@ -46,7 +46,7 @@ export default [
         title_en: 'Cell',
       },
       {
-        path: '',
+        path: '/pages/components/basic/badge/index',
         icon: 'badge',
         title: 'Badge 徽标数',
         title_en: 'Badge',
