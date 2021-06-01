@@ -10,7 +10,10 @@
     @tap="click"
   >
     <!--  icon  -->
-
+    <view v-if="icon" :class="['iconfont', icon]"></view>
+    <view v-if="$slots.icon">
+      <slot name="icon"></slot>
+    </view>
     <!--  title  -->
     <view
       class="u-cell-item__title"
@@ -19,6 +22,7 @@
       <view v-if="title !== ''">{{ title }}</view>
       <slot name="title" v-else></slot>
     </view>
+
     <!--  value  -->
     <view
       class="u-cell-item__value"
@@ -28,12 +32,10 @@
       <slot v-else></slot>
     </view>
     <!--  右侧内容  -->
-    <view
-      class="u-cell-item__end"
-      :style="[endStyle]"
-    >
-      <slot name="end"></slot>
-      <!--   图标> 暂时没写   -->
+    <!--   right-icon   -->
+    <view v-if="rightIcon" :class="['iconfont u-cell-item__right-icon', rightIcon]"></view>
+    <view v-if="$slots['right-icon']" class="u-cell-item__right-icon">
+      <slot name="right-icon"></slot>
     </view>
   </view>
 </template>
@@ -42,11 +44,32 @@
 /**
  * u-cell-item 单元格Item
  * @description cell 单元格一般用于一组列表的情况，搭配 u-cell-group 使用
- * @property {String, Number}
+ * @property {String} icon 左侧title的图标
+ * @property {String} right-icon 右侧尾部图标
+ * @property {String} title 左侧标题内容
+ * @property {String} value 主体内容
+ * @property {String} title-style 左侧标题文字部分自定义样式
+ * @property {String} value-style 主题内容部分自定义样式
+ * @property {String} border-bottom 是否显示下边框（默认true）
+ * @property {String} border-top 是否显示上边框（默认true）
+ * @property {String} bg-color 背景颜色（默认transparent）
+ * @property {String} hoverClass 点击时的动画效果（默认u-cell-hover）
+ * @property {String} center 内容是否垂直居中（默认false）
+ * @property {String}
  */
 export default {
   name: "u-cell-item",
   props: {
+    // 左侧title的图标
+    icon: {
+      type: String,
+      default: ''
+    },
+    // 右侧图标
+    rightIcon: {
+      type: String,
+      default: ''
+    },
     // 左侧标题
     title: {
       type: [String, Number],
@@ -66,13 +89,6 @@ export default {
     },
     // 主题内容的样式
     valueStyle: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-    // 尾部内容的样式
-    endStyle: {
       type: Object,
       default() {
         return {};
@@ -137,6 +153,7 @@ export default {
   vertical-align: middle;
   color: $u-tips-color;
   font-size: 26rpx;
+  text-align: right;
 }
 
 .u-cell-item__title,
@@ -144,8 +161,7 @@ export default {
   flex: 1;
 }
 
-.u-cell-item__end {
-  line-height: 1;
+.u-cell-item__right-icon {
+  margin-left: 6rpx;
 }
-
 </style>

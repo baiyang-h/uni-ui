@@ -14,7 +14,7 @@
  * cellGroup 单元格的包装组件
  * @description 搭配 u-cell-item， 一般会进行分类，一个组
  * @property {String} title 分组标题
- * @property {Boolean} border 是否显示外边框（默认true）
+ * @property {Boolean} border 是否显示上下外边框（默认true）
  * @property {Object} title-style 分组标题的的样式，对象形式，如{'font-size': '24rpx'} 或 {'fontSize': '24rpx'}
  * @example <u-cell-group title="设置喜好" :title-style="{{fontSize: '28rpx'}}">
  */
@@ -26,7 +26,7 @@ export default {
       type: String,
       default: ''
     },
-    // 分组标题的样式，对象形式
+    // 分组标题的样式，对象形式，类似 {'font-size': '24rpx'} 和 {'fontSize': '24rpx'}
     titleStyle: {
       type: Object,
       default () {

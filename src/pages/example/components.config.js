@@ -40,7 +40,7 @@ export default [
         title_en: 'Button',
       },
       {
-        path: '',
+        path: '/pages/components/basic/cell/index',
         icon: 'cell',
         title: 'Cell 单元格',
         title_en: 'Cell',
