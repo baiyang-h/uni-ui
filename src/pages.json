@@ -57,6 +57,12 @@
           }
         },
         {
+          "path": "image/index",
+          "style": {
+            "navigationBarTitleText": "Image 图片"
+          }
+        },
+        {
           "path": "button/index",
           "style": {
             "navigationBarTitleText": "Button 按钮"

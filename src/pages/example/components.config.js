@@ -28,7 +28,7 @@ export default [
         title_en: 'Icon',
       },
       {
-        path: '',
+        path: '/pages/components/basic/image/index',
         icon: 'image',
         title: 'Image 图片',
         title_en: 'Image',

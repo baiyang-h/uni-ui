@@ -10,7 +10,7 @@
     @tap="click"
   >
     <!--  icon  -->
-    <view v-if="icon" :class="['iconfont', icon]"></view>
+    <view v-if="icon" :class="['iconfont u-cell-item__icon', icon]"></view>
     <view v-if="$slots.icon">
       <slot name="icon"></slot>
     </view>
@@ -55,7 +55,7 @@
  * @property {String} bg-color 背景颜色（默认transparent）
  * @property {String} hoverClass 点击时的动画效果（默认u-cell-hover）
  * @property {String} center 内容是否垂直居中（默认false）
- * @property {String}
+ * @property {String, Number} index 外部传入的索引，可以表示点击了第几个
  */
 export default {
   name: "u-cell-item",
@@ -119,10 +119,16 @@ export default {
       type: Boolean,
       default: false
     },
+    // 外部传入的索引，可以表示点击了第几个
+    index: {
+      type: [String, Number],
+      default: undefined
+    }
   },
   methods: {
     click() {
-      this.$emit('click')
+      // this.index 需要外部传入，表示第几个索引
+      this.$emit('click', this.index)
     }
   }
 }
@@ -159,6 +165,10 @@ export default {
 .u-cell-item__title,
 .u-cell-item__value {
   flex: 1;
+}
+
+.u-cell-item__icon {
+  margin-right: 6rpx;
 }
 
 .u-cell-item__right-icon {

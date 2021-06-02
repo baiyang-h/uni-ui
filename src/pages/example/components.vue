@@ -10,9 +10,7 @@
           :key="_item.title"
           :title="_item.title"
           @click="openPage(_item.path)"
-      >
-        <template v-slot:end>›</template>
-      </u-cell-item>
+      />
     </u-cell-group>
     <u-gap height="70"></u-gap>
   </view>
