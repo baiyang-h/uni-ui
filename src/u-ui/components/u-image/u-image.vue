@@ -22,7 +22,7 @@
       }"
     >
       <slot v-if="$slots.loading" name="loading" />
-      <view v-else class="iconfont icon-loading1"></view>
+      <view v-else class="iconfont icon-loading1" :style="[iconStyle]"></view>
     </view>
     <view
       v-if="showError && isError && !loading"
@@ -32,7 +32,7 @@
       }"
     >
       <slot v-if="$slots.error" name="error" />
-      <view v-else class="iconfont icon-jinggao"></view>
+      <view v-else class="iconfont icon-jinggao" :style="[iconStyle]"></view>
     </view>
   </view>
 </template>
@@ -46,6 +46,8 @@
  * @property {String} mode 裁减模式，见官网说明
  * @property {String, Number} width 图片宽度，单位任意，如果为数值，则为rpx单位（默认100%）
  * @property {String, Number} height 图片高度，单位任意，如果为数值，则为rpx单位（默认 auto）
+ * @property {String, Number} icon-size 字体图标大小，则为rpx单位（默认 24）
+ * @property {String} icon-color 字体图标颜色
  * @property {String} shape 图片形状， circle圆形、square方形（默认square）
  * @property {String, Number} border-radius 圆角值，单位任意，如果为数值，则为rpx单位（默认0）
  * @property {String} bg-color 背景颜色，用于深色页面加载图片时，为了和背景色融合（默认#f3f4f6）
@@ -145,6 +147,16 @@ export default {
     bgColor: {
       type: String,
       default: '#f3f4f6'
+    },
+    // 字体图标大小
+    iconSize: {
+      type: [String, Number],
+      default: 24
+    },
+    // 字体图标颜色
+    iconColor: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -190,6 +202,12 @@ export default {
         style.opacity = this.opacity;
         style.transition = `opacity ${Number(this.durationTime) / 1000}s ease-in-out`
       }
+      return style
+    },
+    iconStyle() {
+      let style = {};
+      if(this.iconSize) style.fontSize = this.iconSize + 'rpx'
+      if(this.iconColor) style.color = this.iconColor
       return style
     }
   },
