@@ -132,6 +132,12 @@
           "style": {
             "navigationBarTitleText": "Skeleton 骨架屏"
           }
+        },
+        {
+          "path": "divider/index",
+          "style": {
+            "navigationBarTitleText": "Divider 分割线"
+          }
         }
       ]
     },

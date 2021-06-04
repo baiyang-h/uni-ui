@@ -20,18 +20,24 @@ import toast from "./libs/function/toast";
 /*配置信息*/
 // 各个需要fixed的地方的z-index配置文件
 import zIndex from "./libs/config/zIndex";
+// 基础配置
 import config from './libs/config/config'
+// 主题颜色
+import color from './libs/config/color'
 
 const $u = {
     // 组件库相关配置文件
     config,
+    // z-index的配置信息
+    zIndex,
+    // 主题颜色
+    color,
     $parent,
     // 节流
     throttle,
     // 生成全局唯一guid字符串，一般多用于 key
     guid,
-    // z-index的配置信息
-    zIndex,
+
     // 添加单位
     addUnit,
     // 对象深度合并

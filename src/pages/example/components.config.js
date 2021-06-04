@@ -136,7 +136,7 @@ export default [
         title_en: 'Waterfall',
       },
       {
-        path: '',
+        path: '/pages/components/layout/divider/index',
         icon: 'divider',
         title: 'Divider 分割线',
         title_en: 'Divider',
