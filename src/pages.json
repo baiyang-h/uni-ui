@@ -138,6 +138,12 @@
           "style": {
             "navigationBarTitleText": "Divider 分割线"
           }
+        },
+        {
+          "path": "timeLine/index",
+          "style": {
+            "navigationBarTitleText": "TimeLine 时间轴"
+          }
         }
       ]
     },

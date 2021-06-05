@@ -112,7 +112,7 @@ export default [
         title_en: 'Swiper',
       },
       {
-        path: '',
+        path: '/pages/components/layout/timeLine/index',
         icon: 'timeLine',
         title: 'TimeLine 时间轴',
         title_en: 'TimeLine',

@@ -81,7 +81,6 @@ export default {
       // 此方法写在mixin中，现在 parentData 中的参数值已经取的父组件中相应的参数的值了
       // 还给本组件的 this 增加了 this.parent
       this.getParentData('u-grid');
-      console.log(1, this.parentData, this.parent)
     },
     click() {
       this.$emit('click', this.index);
