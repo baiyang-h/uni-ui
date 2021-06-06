@@ -124,7 +124,7 @@ export default [
         title_en: 'Skeleton',
       },
       {
-        path: '',
+        path: '/pages/components/layout/sticky/index',
         icon: 'sticky',
         title: 'Sticky 吸顶',
         title_en: 'Sticky',

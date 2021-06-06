@@ -150,6 +150,12 @@
           "style": {
             "navigationBarTitleText": "TimeLine 时间轴"
           }
+        },
+        {
+          "path": "sticky/index",
+          "style": {
+            "navigationBarTitleText": "Sticky 吸顶"
+          }
         }
       ]
     },
