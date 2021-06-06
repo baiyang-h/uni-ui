@@ -100,7 +100,7 @@ export default [
         title_en: 'Mask',
       },
       {
-        path: '',
+        path: '/pages/components/layout/noNetwork/index',
         icon: 'noNetwork',
         title: 'NoNetwork 无网络提示',
         title_en: 'NoNetwork',

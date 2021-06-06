@@ -128,6 +128,12 @@
           }
         },
         {
+          "path": "noNetwork/index",
+          "style": {
+            "navigationBarTitleText": "NoNetwork 无网络提示"
+          }
+        },
+        {
           "path": "skeleton/index",
           "style": {
             "navigationBarTitleText": "Skeleton 骨架屏"
