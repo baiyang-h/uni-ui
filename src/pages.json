@@ -156,6 +156,12 @@
           "style": {
             "navigationBarTitleText": "Sticky 吸顶"
           }
+        },
+        {
+          "path": "waterfall/index",
+          "style": {
+            "navigationBarTitleText": "Waterfall 瀑布流"
+          }
         }
       ]
     },

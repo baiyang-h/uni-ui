@@ -130,7 +130,7 @@ export default [
         title_en: 'Sticky',
       },
       {
-        path: '',
+        path: '/pages/components/layout/waterfall/index',
         icon: 'waterfall',
         title: 'Waterfall 瀑布流',
         title_en: 'Waterfall',
