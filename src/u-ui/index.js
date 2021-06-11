@@ -16,6 +16,8 @@ import deepMerge from './libs/function/deepMerge.js'
 import type2icon from './libs/function/type2icon.js'
 // toast提示，对uni.showToast的封装
 import toast from "./libs/function/toast";
+// 随机数
+import random from './libs/function/random.js'
 
 /*配置信息*/
 // 各个需要fixed的地方的z-index配置文件
@@ -37,6 +39,8 @@ const $u = {
     throttle,
     // 生成全局唯一guid字符串，一般多用于 key
     guid,
+    // 随机数
+    random,
 
     // 添加单位
     addUnit,

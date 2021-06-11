@@ -4,7 +4,7 @@
       <slot name="left" :leftList="leftList"></slot>
     </view>
     <view id="u-right-column" class="u-column">
-      <slot name="right" :leftList="rightList"></slot>
+      <slot name="right" :rightList="rightList"></slot>
     </view>
   </view>
 </template>
@@ -78,9 +78,9 @@ export default {
     async splitData() {
       if(!this.tempList.length) return false;
       // 左侧列
-      let leftRect = await this.$u.$uGetRect('#u-left-column');
+      let leftRect = await this.$uGetRect('#u-left-column');
       // 右侧列
-      let rightRect = await this.$u.$uGetRect('#u-right-column');
+      let rightRect = await this.$uGetRect('#u-right-column');
       // 如果左边小于或等于右边，就添加到左边，否则添加到右边
       let item = this.tempList[0];
       // 解决多次快速上拉后，可能数据会乱的问题，因为经过上面的两个await节点查询阻塞一定时间，加上后面的定时器干扰
@@ -108,7 +108,7 @@ export default {
         }, this.addTime)
       }
     },
-    // 清空数据列表
+    // 清空数据列表。 从外部调用 this.$refs.uWaterfall.clear()
     clear() {
       this.leftList = [];
       this.rightList = [];
@@ -116,7 +116,7 @@ export default {
       this.$emit('input', []);
       this.tempList = [];
     },
-    // 清除某一条指定的数据，根据id实现
+    // 清除某一条指定的数据，根据id实现。  从外部调用 this.$refs.uWaterfall.remove(id)
     remove(id) {
       // 如果findIndex找不到合适的条件，就会返回-1
       let index = -1;
@@ -133,7 +133,7 @@ export default {
       index = this.value.findIndex(val => val[this.idKey] === id);
       if(index !== -1) this.$emit('input', this.value.splice(index, 1));
     },
-    // 修改某条数据的某个属性
+    // 修改某条数据的某个属性。从外部调用 this.$refs.uWaterfall.modify({id, key, value})
     modify(id, key, value) {
       // 如果findIndex找不到合适的条件，就会返回-1
       let index = -1;
