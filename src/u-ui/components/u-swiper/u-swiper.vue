@@ -1,6 +1,85 @@
 <template>
-  <view>
-
+  <view
+    class="u-swiper-wrap"
+    :style="{
+      borderRadius: `${borderRadius}rpx`
+    }"
+  >
+   <swiper
+     :current="elCurrent"
+     :interval="interval"
+     :circular="circular"
+     :duration="duration"
+     :autoplay="autoplay"
+     :previous-margin="effect3d ? effect3dPreviousMargin + 'rpx' : '0'"
+     :next-margin="effect3d ? effect3dPreviousMargin + 'rpx' : '0'"
+     :style="{
+       height: height + 'rpx',
+       backgroundColor: bgColor
+     }"
+     @change="change"
+   >
+      <swiper-item class="u-swiper-item" v-for="(item, index) in list" :key="index">
+        <view
+          class="u-list-image-wrap"
+          @tap.stop.prevent="listClick(index)"
+          :class="[uCurrent !== index ? 'u-list-scale' : '']"
+          :style="{
+            borderRadius: `${borderRadius}rpx`,
+            transform: effect3d && uCurrent !== index ? 'scaleY(0.9)' : 'scaleY(1)',
+            margin: effect3d && uCurrent !== index ? '0 20rpx' : 0
+          }"
+        >
+          <image class="u-swiper-image" :src="item[name] || item" :mode="imgMode" />
+          <view
+            v-if="title && item.title"
+            class="u-swiper-title u-line-1"
+            :style="[{
+              'padding-bottom': titlePaddingBottom
+            }, titleStyle]"
+          >
+            {{ item.title }}
+          </view>
+        </view>
+      </swiper-item>
+   </swiper>
+    <view
+      class="u-swiper-indicator"
+      :style="{
+        top: indicatorPos === 'topLeft' || indicatorPos === 'topCenter' || indicatorPos === 'topRight' ? '12rpx' : 'auto',
+        bottom: indicatorPos === 'bottomLeft' || indicatorPos === 'bottomCenter' || indicatorPos === 'bottomRight' ? '12rpx' : 'auto',
+        justifyContent,
+        padding: `0 ${effect3d ? '74rpx' : '24rpx'}`
+      }"
+    >
+      <block v-if="mode === 'rect'">
+        <view
+          class="u-indicator-item-rect"
+          :class="{ 'u-indicator-item-rect-active': index === uCurrent }"
+          v-for="(item, index) in list"
+          :key="index"
+        ></view>
+      </block>
+      <block v-if="mode === 'dot'">
+        <view
+            class="u-indicator-item-dot"
+            :class="{ 'u-indicator-item-dot-active': index === uCurrent }"
+            v-for="(item, index) in list"
+            :key="index"
+        ></view>
+      </block>
+      <block v-if="mode === 'round'">
+        <view
+            class="u-indicator-item-round"
+            :class="{ 'u-indicator-item-round-active': index === uCurrent }"
+            v-for="(item, index) in list"
+            :key="index"
+        ></view>
+      </block>
+      <block v-if="mode === 'number'">
+        <view class="u-indicator-item-number">{{ uCurrent + 1 }}/{{ list.length }}</view>
+      </block>
+    </view>
   </view>
 </template>
 
@@ -143,11 +222,148 @@ export default {
     }
   },
   computed: {
-
+    justifyContent() {
+      if(this.indicatorPos === 'topLeft' || this.indicatorPos === 'bottomLeft') return 'flex-start';
+      if(this.indicatorPos === 'topCenter' || this.indicatorPos === 'bottomCenter') return 'center';
+      if(this.indicatorPos === 'topRight' || this.indicatorPos === 'bottomRight') return 'flex-end';
+    },
+    titlePaddingBottom() {
+      let tmp = 0;
+      if(this.mode === 'none') return '12rpx';
+      // 如果指示器在底部，并且是以数字形式显示
+      if(['bottomLeft', 'bottomCenter', 'bottomRight'].indexOf(this.indicatorPos) >= 0 && this.mode === 'number') {
+        tmp = '60rpx'
+      } else if(['bottomLeft', 'bottomCenter', 'bottomRight'].indexOf(this.indicatorPos) >= 0 && this.mode !== 'number') {
+        tmp = '40rpx'
+      } else {
+        tmp = '12rpx'
+      }
+      return tmp;
+    },
+    // 因为uni的swiper组件的current参数只接受Number类型，这里做一个转换
+    elCurrent() {
+      return Number(this.current);
+    }
+  },
+  methods: {
+    listClick(index) {
+      this.$emit('click', index)
+    },
+    change(e) {
+      let current = e.detail.current;
+      this.uCurrent = current;
+      // 发出change事件，表示当前自动切换的index，从0开始
+      this.$emit('change', current)
+    }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../../styles/style.components";
 
+.u-swiper-wrap {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.u-swiper-image {
+  width: 100%;
+  will-change: transform;
+  height: 100%;
+  /* #ifndef APP-NVUE */
+  display: block;
+  /* #endif */
+  /* #ifdef H5 */
+  pointer-events: none;
+  /* #endif */
+}
+
+.u-swiper-indicator {
+  padding: 0 24rpx;
+  position: absolute;
+  @include u-flex;
+  width: 100%;
+  z-index: 1;
+}
+
+.u-indicator-item-rect {
+  width: 26rpx;
+  height: 8rpx;
+  margin: 0 6rpx;
+  transition: all 0.5s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.u-indicator-item-rect-active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.u-indicator-item-dot {
+  width: 14rpx;
+  height: 14rpx;
+  margin: 0 6rpx;
+  border-radius: 20rpx;
+  transition: all 0.5s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.u-indicator-item-dot-active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.u-indicator-item-round {
+  width: 14rpx;
+  height: 14rpx;
+  margin: 0 6rpx;
+  border-radius: 20rpx;
+  transition: all 0.5s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.u-indicator-item-round-active {
+  width: 34rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.u-indicator-item-number {
+  padding: 6rpx 16rpx;
+  line-height: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 100rpx;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.u-list-scale {
+  transform-origin: center center;
+}
+
+.u-list-image-wrap {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  transition: all 0.5s;
+  overflow: hidden;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.u-swiper-title {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 28rpx;
+  padding: 12rpx 24rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.u-swiper-item {
+  @include u-flex;
+  overflow: hidden;
+  align-items: center;
+}
 </style>
