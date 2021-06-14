@@ -106,7 +106,7 @@ export default [
         title_en: 'NoNetwork',
       },
       {
-        path: '',
+        path: '/pages/components/layout/swiper/index',
         icon: 'swiper',
         title: 'Swiper 轮播图',
         title_en: 'Swiper',

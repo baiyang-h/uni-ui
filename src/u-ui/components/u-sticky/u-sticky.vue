@@ -80,7 +80,7 @@ export default {
     }
   },
   watch: {
-    offsetTop(val) {
+    offsetTop() {
       this.initObserver();
     },
     enable(val) {
@@ -98,6 +98,9 @@ export default {
     }
   },
   mounted() {
+    // if(this.enable) {
+    //   this.fixed = true
+    // }
     this.initObserver();
   },
   methods: {

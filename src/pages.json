@@ -122,6 +122,12 @@
           }
         },
         {
+          "path": "swiper/index",
+          "style": {
+            "navigationBarTitleText": "Swiper 轮播图"
+          }
+        },
+        {
           "path": "mask/index",
           "style": {
             "navigationBarTitleText": "Mask 遮罩层"
