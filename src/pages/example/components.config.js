@@ -148,6 +148,12 @@ export default [
     groupName_en: 'Form components',
     list: [
       {
+        path: '/pages/components/form/input/index',
+        icon: 'input',
+        title: 'Input 输入框',
+        title_en: 'Input',
+      },
+      {
         path: '',
         icon: 'form',
         title: 'Form 表单',
